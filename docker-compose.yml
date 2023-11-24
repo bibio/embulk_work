@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  embulk:
+    build: .
+    working_dir: /app
+    entrypoint: ["embulk"]
+    volumes:
+      - .:/app
+
