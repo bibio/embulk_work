@@ -1,0 +1,11 @@
+in:
+  type: file
+  path_prefix: '/app/sample1/csv/sample_'
+out:
+  type: postgresql
+  host: db
+  user: postgres
+  password: passw0rd
+  database: embulk_sample
+  table: users
+  mode: insert

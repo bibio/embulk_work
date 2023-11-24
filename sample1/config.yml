@@ -1,0 +1,32 @@
+in:
+  type: file
+  path_prefix: /app/sample1/csv/sample_
+  parser:
+    charset: UTF-8
+    newline: LF
+    type: csv
+    delimiter: ','
+    quote: '"'
+    escape: '"'
+    trim_if_not_quoted: false
+    skip_header_lines: 1
+    allow_extra_columns: false
+    allow_optional_columns: false
+    columns:
+    - {name: name, type: string}
+    - {name: name_hira, type: string}
+    - {name: age, type: long}
+    - {name: birthday, type: string}
+    - {name: sex, type: string}
+    - {name: bio, type: string}
+    - {name: email, type: string}
+    - {name: tel, type: string}
+    - {name: mobile, type: string}
+    - {name: postcode, type: string}
+    - {name: address, type: string}
+    - {name: company, type: string}
+    - {name: credit, type: long}
+    - {name: validity, type: string}
+    - {name: mynumber, type: string}
+out: {type: postgresql, host: db, user: postgres, password: passw0rd, database: embulk_sample,
+  table: users, mode: insert}
