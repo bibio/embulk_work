@@ -15,4 +15,7 @@ RUN apk add --no-cache curl bash git && \
 
 ENV PATH=${EMBULK_HOME}/bin:$PATH
 
-RUN embulk gem install embulk -v 0.11.0 && embulk gem install bundler
+RUN embulk gem install embulk -v ${EMBULK_VERSION} && embulk gem install bundler
+
+COPY misc/embulk/Gemfile misc/embulk/Gemfile.lock ${EMBULK_HOME}/
+RUN embulk bundle install --gemfile ${EMBULK_HOME}/Gemfile
