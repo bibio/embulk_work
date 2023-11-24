@@ -7,4 +7,18 @@ services:
     entrypoint: ["embulk"]
     volumes:
       - .:/app
+  db:
+    image: postgres:16.1-alpine3.18
+    environment:
+      POSTGRES_DB: embulk_sample
+      POSTGRES_PASSWORD: $POSTGRES_PASSWORD
+      POSTGRES_HOST_AUTH_METHOD: md5
+      POSTGRES_INITDB_ARGS: --auth-host=md5
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
+    driver: local
+
 
